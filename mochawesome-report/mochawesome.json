@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-07-23T15:18:06.334Z",
+    "end": "2020-07-23T15:18:34.075Z",
+    "duration": 27741,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "69142dec-43f2-44db-a4e8-6f764c3b0378",
+      "title": "",
+      "fullFile": "cypress\\integration\\LoginTest.spec.js",
+      "file": "cypress\\integration\\LoginTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "87b65898-5a56-4300-ad6c-348ae15f8b3e",
+          "title": "Verify the login functionality scenarios ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate the Login functionality with Valid data",
+              "fullTitle": "Verify the login functionality scenarios  Validate the Login functionality with Valid data",
+              "timedOut": null,
+              "duration": 20853,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//Navigate to Demo Webshop url\ncy.visit('http://demowebshop.tricentis.com/');\ncy.clearCookies({ log: true }); // browser level\ncy.clearLocalStorage('Clear your Temp Files history', { log: true }); /// system temp files level\ncy.wait(2000);\n// adding date stamp\nvar date = new Date(2020, 7, 21).getTime();\ncy.clock(date);\ncy.log('Your time now ' + date);\n//verify the title of the home page\ncy.title().should('include', 'Demo Web Shop');\n// user click on login link\ncy.get('.ico-login').click();\ncy.wait(2000);\n// verify the title of login page\ncy.title().should('include', 'Demo Web Shop. Login');\ncy.get('#Email').as('emailaddress');\ncy.get('@emailaddress').clear();\ncy.get('@emailaddress').type('gmail125@gmail.com', { delay: 50 });\ncy.wait(2000);\ncy.get('#Password').as('pwd');\ncy.get('@pwd').clear();\ncy.get('@pwd').type('test123', { delay: 50 });\ncy.get('form > .buttons > .button-1').click();\ncy.wait(2000);\n// it is verify the that perticular element available int he page but not text \ncy.get('.ico-logout').should('be.visible').and('contains', 'Log out'); // verify both elements and text \ncy.wait(2000);\ncy.get('.header-links > ul > :nth-child(1) > .account').should('be.visible').and('contains', 'gmail125@gmail.com');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: object tested must be an array, a map, an object, a set, a string, or a weakset, but object given",
+                "estack": "AssertionError: Timed out retrying: object tested must be an array, a map, an object, a set, a string, or a weakset, but object given\n    at Context.eval (http://demowebshop.tricentis.com/__cypress/tests?p=cypress\\integration\\LoginTest.spec.js:219:52)",
+                "diff": null
+              },
+              "uuid": "3c246052-3e88-476a-a9a0-4a09a4e77d7d",
+              "parentUUID": "87b65898-5a56-4300-ad6c-348ae15f8b3e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3c246052-3e88-476a-a9a0-4a09a4e77d7d"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 20853,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
